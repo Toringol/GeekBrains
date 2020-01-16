@@ -1,0 +1,18 @@
+<!-- 
+    Подсчет площади трапеции.
+Пользователь вводит длину оснований трапеции (a и b), а также высоту трапеции h. 
+Программа выводит сообщение: «Площадь трапеции будет равна <значение>». 
+Площадь вычисляется по формуле ((a + b) / 2) * h, где a, b - основания, h - высота. 
+-->
+<meta charset="utf-8">
+<script type="text/javascript">
+    
+    var trapezeBase1 = parseFloat(prompt("Введите длину нижнего основания трапеции"))
+    var trapezeBase2 = parseFloat(prompt("Введите длину верхнего основания трапеции"))
+    var trapezeHeight = parseFloat(prompt("Введите высоту трапеции"))
+
+    var trapezeSquare = ((trapezeBase1 + trapezeBase2) / 2) * trapezeHeight
+
+    alert("Площадь трапеции будет равна " + trapezeSquare)
+    
+</script>
