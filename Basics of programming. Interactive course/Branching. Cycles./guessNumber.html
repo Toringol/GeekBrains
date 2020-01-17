@@ -1,0 +1,63 @@
+<!-- 
+    Дописать игру “Угадай число” (по желанию).
+Сделать игру с двумя игроками и бесконечным числом попыток. Сделайте возможность выйти из игры по желанию одного из игроков. 
+-->
+<meta charset="utf-8">
+<script type="text/javascript">
+
+    var answer = parseInt(Math.random() * 100)
+    
+    // Спрашиваем имена игроков
+    var firstPlayer = prompt("Пожалуйства, введите никнейм первого игрока")
+    var secondPlayer = prompt("Пожалуйства, введите никнейм второго игрока")
+
+    var exitFirstPlayerFlag, exitSecondPlayerFlag = false;
+
+    for (;;) {
+        
+        // Проверяем вышел ли первый игрок из игры и запрашиваем предсказание числа
+        if (!exitFirstPlayerFlag) {
+            var firstUserAnswer = +prompt(firstPlayer + " угадайте число от 0 до 100");
+            // Проверяем ответ первого игрока, если ответ правильный, игрок выходит из игры
+            if (firstUserAnswer == answer) {
+                alert("Поздравляю, " + firstPlayer + ", вы угадали!")
+                exitFirstPlayerFlag = true;
+            } else if (firstUserAnswer > answer) {
+                alert(firstPlayer + ", Вы ввели слишком большое число.");
+            } else if (firstUserAnswer < answer) {
+                alert(firstPlayer + ", Вы ввели слишком маленькое число.");
+            }
+        }
+
+        // Проверяем вышел ли второй игрок из игры и запрашиваем предсказание числа
+        if (!exitSecondPlayerFlag) {
+            var secondUserAnswer = +prompt(secondPlayer + " угадайте число от 0 до 100");
+            // Проверяем ответ второго игрока, если ответ правильный, игрок выходит из игры
+            if (secondUserAnswer == answer) {
+                alert("Поздравляю, " + secondPlayer + ", вы угадали!")
+                exitSecondPlayerFlag = true;
+            } else if (secondUserAnswer > answer) {
+                alert(secondPlayer + ", Вы ввели слишком большое число.");
+            } else if (secondUserAnswer < answer) {
+                alert(secondPlayer + ", Вы ввели слишком маленькое число.");
+            }
+        }
+
+        // Проверяем вышел ли из игры первый игрок и спрашиваем хочет ли он продолжить 
+        if (!exitFirstPlayerFlag) {
+            exitFirstPlayerFlag = !confirm(firstPlayer + ", Вы хотите продожить игру?")
+        }
+
+        // Проверяем вышел ли из игры второй игрок и спрашиваем хочет ли он продолжить
+        if (!exitSecondPlayerFlag) {
+            exitSecondPlayerFlag = !confirm(secondPlayer + ", Вы хотите продожить игру?")
+        }
+
+        // Проверяем, если оба игрока вышли из игры и благодарим за участие
+        if (exitFirstPlayerFlag && exitSecondPlayerFlag) {
+            alert("Спасибо за игру!")
+            break;
+        }
+    }
+
+</script>
