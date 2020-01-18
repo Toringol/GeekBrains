@@ -1,0 +1,44 @@
+<!-- 
+    Доработать игру в загадки:
+a. Избавиться в игре в загадки от дублирования кода, используя массивы и функции.
+b. Сделать так, чтобы программа поддерживала несколько правильных ответов на один и тот же вопрос. 
+Все возможные варианты задаются программистом в коде программы.
+-->
+<meta charset="utf-8">
+<script type="text/javascript">
+
+    // Функция для проверки ответа, принимает загадки с их ответами и номер загадки
+    // Возращает true, если ответ верный и false, если - неверный.
+    function checkRiddleAnswer(riddles, riddleNumber) {
+        var userAnswer = prompt("Напишите ответ на загадку:\n" + riddles[riddleNumber][0]);
+        for (var iter = 0; iter < riddles[riddleNumber][1].length; iter++) {
+            if (userAnswer.toLocaleLowerCase() == riddles[riddleNumber][1][iter]) {
+                alert("Поздравляю ответ верный!\n" + "Продолжайте в том же духе!");
+                return true;
+            }
+        }
+        alert("К сожалению, ответ неверный.\n" + "Правильный ответ: " + riddles[riddleNumber][1]);
+        return false;
+    }
+
+    // Массив загадок с массивом ответов
+    var riddles = [
+        ["Висит груша, нельзя скушать?", ["лампочка"]],
+        ["Пустые отдыхаем,\nА полные шагаем.", ["сапоги"]],
+        ["Нет ушей, а слышит.\nНету рук, а пишет.", ["магнитофон", "диктофон"]],
+        ["Над нами кверху ногами.", ["таракан"]],
+    ];
+
+    var riddlesNumber = 4;
+    var rightAnswersCounter = 0;
+    for (var iter = 0; iter < riddlesNumber; iter++) {
+        if (checkRiddleAnswer(riddles, iter)) {
+            rightAnswersCounter++;
+        }
+    }
+
+    alert("Поздравляю!\nКоличество ваших правильных ответов: " + 
+        rightAnswersCounter + "\nИгра окончена!")
+
+
+</script>
