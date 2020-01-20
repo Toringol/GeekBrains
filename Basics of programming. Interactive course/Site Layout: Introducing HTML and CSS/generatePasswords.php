@@ -6,7 +6,6 @@
 	<link rel="stylesheet" href="style.css"> 
 	<script type="text/javascript">
 
-        var randomPassword = "";
         var newPassword = false;
 
         var arraySymbols = [
@@ -28,6 +27,7 @@
         }
 
         function GeneratePassword() {
+	    var randomPassword = "";
             var passLen = readInt();
             for (var i = 0; i < passLen; i++) {
                 randomPassword += arraySymbols[generateRandomNumber(arraySymbols.length - 1)];
