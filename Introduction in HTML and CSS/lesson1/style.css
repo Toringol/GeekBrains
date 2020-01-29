@@ -1,0 +1,36 @@
+.imgIphoneXR {
+    width: 420px;
+    height: 420px;
+    position: absolute;
+    top: 100px;
+    padding-left: 50px;
+}
+
+.iphoneXR {
+    width: 420px;
+    height: 420px;
+    padding-left: 50px;
+}
+
+.imgIphone11 {
+    padding-left: 50px;
+}
+
+.iphone11proRef {
+    padding-left: 160px;
+}
+
+.iphone11Ref {
+    padding-left: 370px;
+}
+
+.iphoneXRRef {
+    padding-left: 350px;
+}
+
+.item {
+    position: absolute;
+    top: 70px;
+    left: 400px;
+    padding-left: 160px;
+}
