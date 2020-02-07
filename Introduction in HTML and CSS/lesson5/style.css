@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,300,100italic');
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #2D2D2D;
+}
+
+.header {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.header img {
+    width: 37px;
+    height: 43px;
+}
+
+.header a {
+    display: block;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+    padding: 1rem 1.25rem;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+.header a:after {
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    right: 1.25rem;
+    left: 1.25rem;
+    background-color: #ffffff;
+    -webkit-transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    z-index: -1;
+}
+
+.header a:hover {
+    color: #2D2D2D;
+}
+
+.header a:hover:after {
+    right: 0;
+    left: 0;
+    height: 100%;
+}
+
+.content {
+    color: white;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 40px;
+    font-weight: 300;
+    margin-top: 40px;
+    margin-bottom: 75px;
+}
+
+.content img {
+    margin-left: 50px;
+    width: 389px;
+    border-radius: 50%;
+}
+
+.content .box_text {
+    width: 671px;
+    float: right;
+    padding: 41px 48px 51px 76px;
+    margin-bottom: 100px;
+}
+
+.content .box_text p {
+    font-size: 24px;
+    font-weight: 100;
+    text-align: left;
+    margin-bottom: 31px;
+}
+
+
+.footer {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+.contentCatalog {
+    padding-top: 2%;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.contentCatalog .imgIphone11ProMax {
+    width: 470px;
+    height: 470px;
+}
+
+.contentCatalog p {
+    font-size: 24px;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 21px;
+    color: white;
+}
+
+.contentCatalog a:hover img {
+    opacity: .5;
+}
+
+.contentCatalog a:hover .iphone11proMaxText {
+    opacity: 1;
+    transition: .5s;
+    border: 1px solid #fff;
+    padding: 10px;
+}
+
+.contentCatalog a:hover .iphone11proText {
+    opacity: 1;
+    transition: .5s;
+    border: 1px solid #fff;
+    padding: 10px;
+}
+
+.contentCatalog a:hover .iphone11Text {
+    opacity: 1;
+    transition: .5s;
+    border: 1px solid white; 
+    padding: 10px;
+}
+
+
+.contentCatalog .iphone11proMaxText {
+    opacity: 0;
+    position: absolute;
+    top: 47%;
+    left: 15%;
+}
+
+.contentCatalog .iphone11proText {
+    opacity: 0;
+    position: absolute;
+    top: 47%;
+    left: 45%;
+}
+
+.contentCatalog .iphone11Text {
+    opacity: 0;
+    position: absolute;
+    top: 47%;
+    left: 76%;
+}
+
+.contentContacts {
+    margin-top: 2%;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.contentContacts p {
+    font-size: 24px;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 21px;
+    color: white;
+}
+
+
+.contentContacts .form {padding: 50px;}
+.contentContacts .form input,
+.contentContacts .form textarea {
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    background: #E9EFF6;
+    line-height: 40px;
+    border-width: 0;
+    border-radius: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+.contentContacts .form input[type="text"] {
+    text-transform: capitalize;
+}
+
+.contentContacts .form input[type="submit"] {
+    margin-left: 12%;
+    margin-top: 30px;
+    background: #f69a73;
+    border-bottom: 4px solid #d87d56;
+    color: white;
+    font-size: 14px;
+}
+
+.contentContacts .form textarea {resize: none;}
+
+.contentContacts .map {
+    margin-left: 20%;
+}
+
+.Back, .Buy {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    width: 140px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    margin: 10px 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0,0,0,.1);
+}
+
+.Back:hover, .Buy:hover {
+    background: #2EE59D;
+    box-shadow: 0 7px 10px rgba(46,229,157,.4);
+    color: white;
+}
+
+.iphone11proMaxImg {
+    width: 470px;
+    height: 470px;
+}
+
+
+.contentItem {
+    color: white;
+    padding-top: 2%;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
