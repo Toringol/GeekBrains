@@ -6,11 +6,19 @@ func main() {
 
 	var depositAmount, depositPercentage, resultDeposit float64 = 0, 0, 0
 
-	fmt.Print("Input depositAmount: ")
-	fmt.Scanln(&depositAmount)
+	for {
+		fmt.Print("Input depositAmount: ")
+		fmt.Scanln(&depositAmount)
 
-	fmt.Print("Input depositPercentage: ")
-	fmt.Scanln(&depositPercentage)
+		fmt.Print("Input depositPercentage: ")
+		fmt.Scanln(&depositPercentage)
+
+		if depositAmount < 0 || depositPercentage < 0 {
+			fmt.Println("Please input positive value")
+		} else {
+			break
+		}
+	}
 
 	depositDuration := 5
 

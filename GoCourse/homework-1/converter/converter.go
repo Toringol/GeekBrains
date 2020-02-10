@@ -9,8 +9,16 @@ func main() {
 	const dollarRate = 64.1
 	var rublesToConvert float64 = 0
 
-	fmt.Print("Input the amount of rubles to convert: ")
-	fmt.Scanln(&rublesToConvert)
+	for {
+		fmt.Print("Input the amount of rubles to convert: ")
+		fmt.Scanln(&rublesToConvert)
+
+		if rublesToConvert < 0 {
+			fmt.Println("Please input positive value")
+		} else {
+			break
+		}
+	}
 
 	resultAmount := rublesToConvert / dollarRate
 
