@@ -1,38 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/big"
+)
 
-// 1) Написать функцию, которая определяет, четное ли число.
-func isEven(number int) bool {
-	if number%2 == 0 {
-		return true
-	}
-	return false
-}
-
-// 2) Написать функцию, которая определяет, делится ли число без остатка на 3.
-func isDivideOnThree(number int) bool {
-	if number%3 == 0 {
-		return true
-	}
-	return false
+// 1) и 2) Определяет делится ли число на другое число без остатка
+func isDivide(number int, div int) bool {
+	return number%div == 0
 }
 
 // 3) Написать функцию, которая последовательно выводит на экран 100 первых чисел Фибоначчи, начиная от 0.
 func fibonacciToHundred() {
-	var fibNumber uint = 0
-	var prevFibNumber uint = 1
-	var prevPrevFibNumber uint = 0
+	fibNumber := big.NewInt(0)
+	prevFibNumber := big.NewInt(1)
 
 	for i := 0; i < 100; i++ {
 		if i == 0 {
-			fibNumber = 0
+			fibNumber = big.NewInt(0)
 		} else if i == 1 {
-			fibNumber = 1
+			fibNumber = big.NewInt(1)
 		} else {
-			fibNumber = prevFibNumber + prevPrevFibNumber
-			prevPrevFibNumber = prevFibNumber
-			prevFibNumber = fibNumber
+			fibNumber.Add(fibNumber, prevFibNumber)
+			fibNumber, prevFibNumber = prevFibNumber, fibNumber
 		}
 		fmt.Println(i, " ", fibNumber)
 	}
@@ -45,8 +35,8 @@ const (
 )
 
 func generateHundredElementsArrayPrimeNumbers() [sizeResultArray]int {
-	var arrPrimeNumbers = [sizeResultArray]int{}
-	var arrСonsecutiveNumbers = [sizeTempArray]int{}
+	var arrPrimeNumbers [sizeResultArray]int
+	var arrСonsecutiveNumbers [sizeTempArray]int
 
 	// Заполняем временный массив
 	for i := 0; i < sizeTempArray; i++ {
