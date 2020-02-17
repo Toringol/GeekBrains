@@ -12,18 +12,12 @@ func isDivide(number int, div int) bool {
 
 // 3) Написать функцию, которая последовательно выводит на экран 100 первых чисел Фибоначчи, начиная от 0.
 func fibonacciToHundred() {
-	fibNumber := big.NewInt(0)
+	fibNumber := big.NewInt(1)
 	prevFibNumber := big.NewInt(1)
 
-	for i := 0; i < 100; i++ {
-		if i == 0 {
-			fibNumber = big.NewInt(0)
-		} else if i == 1 {
-			fibNumber = big.NewInt(1)
-		} else {
-			fibNumber.Add(fibNumber, prevFibNumber)
-			fibNumber, prevFibNumber = prevFibNumber, fibNumber
-		}
+	for i := 2; i <= 100; i++ {
+		fibNumber.Add(fibNumber, prevFibNumber)
+		fibNumber, prevFibNumber = prevFibNumber, fibNumber
 		fmt.Println(i, " ", fibNumber)
 	}
 }
