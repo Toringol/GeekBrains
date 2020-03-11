@@ -42,23 +42,22 @@ func main() {
 }
 
 func (chat *Chat) broadcaster() {
-	clients := make(map[client]bool)
 	for {
 		select {
 		case msg := <-chat.Messages:
-			for cli := range clients {
+			for cli := range chat.Clients {
 				cli <- msg
 			}
 
 		case cli := <-chat.Entering:
-			clients[cli] = true
+			chat.Clients[cli] = true
 
 		case cli := <-chat.Leaving:
-			delete(clients, cli)
+			delete(chat.Clients, cli)
 			close(cli)
 		case <-chat.ServerClose:
 			for cli := range chat.Entering {
-				delete(clients, cli)
+				delete(chat.Clients, cli)
 				close(cli)
 			}
 		}
