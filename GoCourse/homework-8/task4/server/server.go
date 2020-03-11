@@ -15,21 +15,23 @@ type Chat struct {
 	Entering    chan client
 	Leaving     chan client
 	Messages    chan string
-	ServerClose chan string
+	ServerClose chan struct{}
 }
 
 func main() {
 	chat := &Chat{
-		Clients:  make(map[client]bool),
-		Entering: make(chan client),
-		Leaving:  make(chan client),
-		Messages: make(chan string),
+		Clients:     make(map[client]bool),
+		Entering:    make(chan client),
+		Leaving:     make(chan client),
+		Messages:    make(chan string),
+		ServerClose: make(chan struct{}),
 	}
 	listener, err := net.Listen("tcp", "localhost:8000")
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	chatExit := make(chan struct{})
 	go chat.broadcaster()
 	for {
 		conn, err := listener.Accept()
@@ -38,6 +40,13 @@ func main() {
 			continue
 		}
 		go chat.handleConn(conn)
+		defer func() {
+			chatExit <- struct{}{}
+			select {
+			case <-chatExit:
+				chat.ServerClose <- struct{}{}
+			}
+		}()
 	}
 }
 
@@ -56,7 +65,7 @@ func (chat *Chat) broadcaster() {
 			delete(chat.Clients, cli)
 			close(cli)
 		case <-chat.ServerClose:
-			for cli := range chat.Entering {
+			for cli := range chat.Clients {
 				delete(chat.Clients, cli)
 				close(cli)
 			}
