@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"net"
@@ -13,5 +14,9 @@ func main() {
 		log.Fatal(err)
 	}
 	defer conn.Close()
-	io.Copy(os.Stdout, conn) // игнорируем ошибки
+	go func() {
+		io.Copy(os.Stdout, conn)
+	}()
+	io.Copy(conn, os.Stdin) // until you send ^Z
+	fmt.Printf("%s: exit", conn.LocalAddr())
 }
